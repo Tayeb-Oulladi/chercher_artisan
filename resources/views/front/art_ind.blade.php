@@ -69,7 +69,7 @@
             <h2>Choisissez l'artisan dont vous avez besoin</h2>
         </div>
         <div class="container mb-4">
-    <form method="GET" class="row">
+    <form method="GET" id="search-form" class="row">
         <div class="col-md-5">
             <input type="text" name="profession" class="form-control" placeholder="Rechercher par métier (ex: électricien)">
         </div>
@@ -82,7 +82,7 @@
     </form>
 </div>
 
-<div class="row">
+<div class="row" id="artisan-results">
     @foreach ($artisans as $artisan)
         <div class="col-lg-3 col-md-6">
             <div class="team-item">
@@ -139,5 +139,26 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script>
+    $(document).ready(function () {
+        $('#search-form input').on('input', function () {
+            let profession = $('input[name="profession"]').val();
+            let ville = $('input[name="ville"]').val();
+
+            $.ajax({
+                url: "{{ route('artisans.search') }}",
+                type: "GET",
+                data: {
+                    profession: profession,
+                    ville: ville
+                },
+                success: function (response) {
+                    $('#artisan-results').html(response.html);
+                }
+            });
+        });
+    });
+</script>
+
     </body>
 </html>

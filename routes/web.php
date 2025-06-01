@@ -12,6 +12,8 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/company', [SocieteArtisanController::class, 'index'])->name('company');
 Route::get('/artisans', [ArtisanController::class, 'index'])->name('artisan');
+Route::get('/artisans/search', [ArtisanController::class, 'search'])->name('artisans.search');
+
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');

@@ -113,7 +113,7 @@
         <textarea class="form-control" name="message" placeholder="Message" required></textarea>
     </div>
     <div>
-        <button class="btn" type="submit">Envoyer</button>
+        <button class="btn" type="submit">Envoyer .</button>
     </div>
 </form>
 @if(session('success'))

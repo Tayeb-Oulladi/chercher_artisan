@@ -11,6 +11,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/company', [SocieteArtisanController::class, 'index'])->name('company');
+Route::get('/societes/search', [SocieteArtisanController::class, 'search'])->name('societes.search');
+
+
 Route::get('/artisans', [ArtisanController::class, 'index'])->name('artisan');
 Route::get('/artisans/search', [ArtisanController::class, 'search'])->name('artisans.search');
 

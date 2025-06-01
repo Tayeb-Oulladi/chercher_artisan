@@ -69,7 +69,7 @@
             <h2>Choisissez l'entreprise que vous souhaitez</h2>
         </div>
         <div class="container mb-4">
-    <form method="GET" class="row">
+    <form method="GET" class="row" id="searchSocieteForm">
         
         <div class="col-md-5">
             <input type="text" name="ville" class="form-control" placeholder="Rechercher par wilaya (ex: Oran)">
@@ -81,7 +81,7 @@
 </div>
 
 <div class="row">
-
+<div class="row" id="societeResults">
 @foreach($societes as $societe)
 <div class="col-lg-3 col-md-6">
     <div class="team-item">
@@ -100,6 +100,7 @@
     </div>
 </div>
 @endforeach
+</div>
 
 </div>
 
@@ -130,5 +131,30 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script>
+$(document).ready(function() {
+    $('#searchSocieteForm input').on('keyup', function() {
+        var formData = $('#searchSocieteForm').serialize();
+
+        $.ajax({
+            url: "{{ route('societes.search') }}",
+            method: "GET",
+            data: formData,
+            success: function(response) {
+                $('#societeResults').html(response.html);
+            },
+            error: function(xhr) {
+                console.error('Erreur AJAX:', xhr.responseText);
+            }
+        });
+    });
+
+    $('#searchSocieteForm').on('submit', function(e) {
+        e.preventDefault();
+    });
+});
+</script>
+
+
     </body>
 </html>

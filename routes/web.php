@@ -14,7 +14,8 @@ Route::get('/company', [SocieteArtisanController::class, 'index'])->name('compan
 Route::get('/artisans', [ArtisanController::class, 'index'])->name('artisan');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
-Route::post('/envoyer-message', [MessageController::class, 'store'])->name('messages.store');
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+
 
 
 

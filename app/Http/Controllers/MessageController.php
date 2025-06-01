@@ -8,19 +8,21 @@ class MessageController extends Controller
 {
     public function store(Request $request)
     {
-        // Validation des données
-        $request->validate([
-            'nom' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'sujet' => 'required',
-            'message' => 'required',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
         ]);
 
-        // Enregistrement dans la base de données
-        Message::create($request->all());
+        Message::create([
+            'nom' => $validated['name'],
+            'email' => $validated['email'],
+            'sujet' => $validated['subject'],
+            'message' => $validated['message'],
+        ]);
 
-        // Redirection ou message de succès
-        return redirect()->route('home')->with('success', 'Votre message a bien été envoyé.');
-
+        return redirect()->back()->with('success', 'Message envoyé avec succès !');
     }
+
 }

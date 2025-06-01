@@ -367,7 +367,7 @@
             <!-- Video Start -->
             <div class="video wow fadeIn" data-wow-delay="0.1s">
                 <div class="container">
-                    <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+                    <button type="button" class="btn-play" data-toggle="modal" data-src="https://youtu.be/x3QbwJzrQaU?si=7uulP-3aVgpvi957" data-target="#videoModal">
                         <span></span>
                     </button>
                 </div>
@@ -396,69 +396,64 @@
 
             <!-- Testimonial Start -->
             <div class="testimonial wow fadeIn" data-wow-delay="0.1s">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="testimonial-slider-nav">
-                                <div class="slider-nav"><img src="img/testimonial-1.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-2.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-3.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-4.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-1.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-2.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-3.jpg" alt="Testimonial"></div>
-                                <div class="slider-nav"><img src="img/testimonial-4.jpg" alt="Testimonial"></div>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <div class="testimonial-slider-nav">
+    <div class="slider-nav"><img src="{{ asset('img/1.jpeg') }}" alt="Testimonial" class="rounded-circle"></div>
+    <div class="slider-nav"><img src="{{ asset('img/4.jpeg') }}" alt="Testimonial" class="rounded-circle"></div>
+    <div class="slider-nav"><img src="{{ asset('img/2.jpeg') }}" alt="Testimonial" class="rounded-circle"></div>
+    <div class="slider-nav"><img src="{{ asset('img/6.jpeg') }}" alt="Testimonial" class="rounded-circle"></div>
+    <div class="slider-nav"><img src="{{ asset('img/3.jpeg') }}" alt="Testimonial" class="rounded-circle"></div>
+    <div class="slider-nav"><img src="{{ asset('img/5.jpeg') }}" alt="Testimonial" class="rounded-circle"></div>
+</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonial-slider">
+                    <!-- Artisan 1 -->
+                    <div class="slider-item">
+                        <h3>Mohamed Lounis</h3>
+                        <h4>Électricien</h4>
+                        <p>Grâce à cette plateforme, j’ai pu toucher plus de clients dans ma région. Les demandes sont sérieuses et régulières. Un vrai coup de boost pour mon activité.</p>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="testimonial-slider">
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                                <div class="slider-item">
-                                    <h3>Customer Name</h3>
-                                    <h4>profession</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Artisan 2 -->
+                    <div class="slider-item">
+                        <h3>Yasmine Amrani</h3>
+                        <h4>Décoratrice d’intérieur</h4>
+                        <p>J’ai apprécié la simplicité d’inscription et la manière dont mon profil a été mis en avant. J’ai reçu plusieurs contacts dès les premières semaines.</p>
+                    </div>
+                    <!-- Artisan 3 -->
+                    <div class="slider-item">
+                        <h3>Ali Sebai</h3>
+                        <h4>Plombier chauffagiste</h4>
+                        <p>Enfin un site qui comprend les besoins des artisans ! Interface claire, clients réels, et un bon suivi. Je recommande les yeux fermés.</p>
+                    </div>
+                    <!-- Client 1 -->
+                    <div class="slider-item">
+                        <h3>Rania Djalal</h3>
+                        <h4>Cliente - Peinture et déco</h4>
+                        <p>J’ai trouvé un artisan très compétent en quelques clics. Travail propre, rapide, et exactement comme je l’espérais. Merci pour la mise en relation !</p>
+                    </div>
+                    <!-- Client 2 -->
+                    <div class="slider-item">
+                        <h3>Hakim Boulahbal</h3>
+                        <h4>Client - Rénovation salle de bain</h4>
+                        <p>Le site m’a permis de comparer plusieurs artisans et choisir celui qui me convenait le mieux. Le résultat est impeccable !</p>
+                    </div>
+                    <!-- Client 3 -->
+                    <div class="slider-item">
+                        <h3>Sabrina Mecheri</h3>
+                        <h4>Cliente - Couture sur mesure</h4>
+                        <p>Service pratique et sécurisé. J’ai été mise en contact avec une couturière exceptionnelle. Je suis très satisfaite du rendu final.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
             <!-- Testimonial End -->
 
 

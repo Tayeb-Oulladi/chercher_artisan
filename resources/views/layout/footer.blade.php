@@ -6,7 +6,7 @@
                                 <h2>Office Contact</h2>
                                 <p><i class="fa fa-map-marker-alt"></i>Oran Algérie</p>
                                 <p><i class="fa fa-phone-alt"></i>+213 534657728</p>
-                                <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                <p><i class="fa fa-envelope"></i>info@khdamlii.com</p>
                                 <div class="footer-social">
                                     <a href=""><i class="fab fa-twitter"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -18,29 +18,27 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-link">
-                                <h2>Services Areas</h2>
-                                <a href="">Building Construction</a>
-                                <a href="">House Renovation</a>
-                                <a href="">Architecture Design</a>
-                                <a href="">Interior Design</a>
-                                <a href="">Painting</a>
+                                <h2>Khdamlii pages</h2>
+                                <a href="{{ route('home') }}">Accueil</a>
+                                <a href="{{ route('about') }}">à propos</a>
+                                <a href="{{ route('service') }}">services</a>
+                                
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-link">
-                                <h2>Useful Pages</h2>
-                                <a href="">About Us</a>
-                                <a href="">Contact Us</a>
-                                <a href="">Our Team</a>
-                                <a href="">Projects</a>
-                                <a href="">Testimonial</a>
+                                <h2>Pages utiles</h2>
+                                <a href="{{ route('artisan') }}">Artisans</a>
+                                <a href="{{ route('company') }}">Entreprise</a>
+                                <a href="{{ route('contact') }}">Contact</a>
+                                
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="newsletter">
-                                <h2>Newsletter</h2>
+                                <h2>A propos</h2>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu
+                                hdamlii est une plateforme 100% algérienne conçue pour mettre en relation les particuliers et les artisans qualifiés à travers toute l'Algérie. 
                                 </p>
                                 <div class="form">
                                     <input class="form-control" placeholder="Email here">
@@ -52,10 +50,10 @@
                 </div>
                 <div class="container footer-menu">
                     <div class="f-menu">
-                        <a href="">Terms of use</a>
-                        <a href="">Privacy policy</a>
+                        <a href="">Conditions d'utilisation</a>
+                        <a href="">Politique de confidentialité</a>
                         <a href="">Cookies</a>
-                        <a href="">Help</a>
+                        <a href="">Aide</a>
                         <a href="">FQAs</a>
                     </div>
                 </div>

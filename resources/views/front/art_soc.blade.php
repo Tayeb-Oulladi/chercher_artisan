@@ -81,52 +81,29 @@
 </div>
 
 <div class="row">
-<?php
-// Connexion à la base de données
-$pdo = new PDO('mysql:host=localhost;dbname=artisan_finder', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Filtrage éventuel par ville
-$ville = isset($_GET['ville']) ? trim($_GET['ville']) : '';
-
-$query = "SELECT photo, nom_societe, ville, adresse, telephone  FROM societe_artisan WHERE 1=1";
-$params = [];
-
-if (!empty($ville)) {
-    $query .= " AND ville LIKE :ville";
-    $params[':ville'] = '%' . $ville . '%';
-}
-
-$stmt = $pdo->prepare($query);
-$stmt->execute($params);
-
-// Boucle sur chaque société
-while ($societe = $stmt->fetch(PDO::FETCH_ASSOC)) {
-?>
-    <div class="col-lg-3 col-md-6">
-        <div class="team-item">
-            <div class="team-img">
-                <img src="img/<?= htmlspecialchars($societe['photo']) ?>" alt="Photo Société" style="width:100%; height:250px; object-fit:cover;">
-            </div>
-            <div class="team-text">
-                <h2><?= htmlspecialchars($societe['nom_societe']) ?></h2>
-                <p><i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($societe['ville']) ?> - <?= htmlspecialchars($societe['adresse']) ?></p>
-                <p><i class="fab fa-whatsapp"></i> 
-                    <a href="https://wa.me/<?= preg_replace('/\D+/', '', $societe['telephone']) ?>" target="_blank">
-                        <?= htmlspecialchars($societe['telephone']) ?>
-                    </a>
-                </p>
-            </div>
+@foreach($societes as $societe)
+<div class="col-lg-3 col-md-6">
+    <div class="team-item">
+        <div class="team-img">
+            <img src="{{ asset('img/' . $societe->photo) }}" alt="Photo Société" style="width:100%; height:250px; object-fit:cover;">
+        </div>
+        <div class="team-text">
+            <h2>{{ $societe->nom_societe }}</h2>
+            <p><i class="fas fa-map-marker-alt"></i> {{ $societe->ville }} - {{ $societe->adresse }}</p>
+            <p><i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/{{ preg_replace('/\D+/', '', $societe->telephone) }}" target="_blank">
+                    {{ $societe->telephone }}
+                </a>
+            </p>
         </div>
     </div>
-<?php
-}
-?>
+</div>
+@endforeach
+
 </div>
 
 </div>
-            <!-- Team End -->
-            
             
 
 

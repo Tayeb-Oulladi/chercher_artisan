@@ -54,7 +54,7 @@
                         <div class="carousel-caption">
                             <p class="animated fadeInRight">Travail soigné</p>
                             <h1 class="animated fadeInLeft">tu cherches un plombier !</h1>
-                            <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">obtenir un devis</a>
+                            
                         </div>
                     </div>
 

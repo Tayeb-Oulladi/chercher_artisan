@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SocieteArtisan extends Model
 {
-    //
+    use HasFactory;
+
+    protected $table = 'societe_artisan';
+
+    protected $fillable = ['name', 'description', 'photo'];
+
 }

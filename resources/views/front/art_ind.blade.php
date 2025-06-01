@@ -82,64 +82,35 @@
     </form>
 </div>
 
-        <div class="row">
-        <?php
-// Connexion à la base de données (à adapter à ta configuration)
-$pdo = new PDO('mysql:host=localhost;dbname=artisan_finder', 'root', '');
-
-// Exécution de la requête
-// Préparation des filtres
-$profession = isset($_GET['profession']) ? trim($_GET['profession']) : '';
-$ville = isset($_GET['ville']) ? trim($_GET['ville']) : '';
-
-$query = "SELECT * FROM artisans WHERE 1=1";
-$params = [];
-
-if (!empty($profession)) {
-    $query .= " AND profession LIKE :profession";
-    $params[':profession'] = '%' . $profession . '%';
-}
-
-if (!empty($ville)) {
-    $query .= " AND ville LIKE :ville";
-    $params[':ville'] = '%' . $ville . '%';
-}
-
-$stmt = $pdo->prepare($query);
-$stmt->execute($params);
-
-// Boucle sur chaque artisan
-while ($artisan = $stmt->fetch(PDO::FETCH_ASSOC)) {
-?>
-    <div class="col-lg-3 col-md-6">
-        <div class="team-item">
-            <div class="team-img">
-                <img src="img/<?= htmlspecialchars($artisan['photo']) ?>" alt="Photo Artisan" style="width:100%; height:250px; object-fit:cover;">
-            </div>
-            <div class="team-text">
-                <h2><?= htmlspecialchars($artisan['nom']) ?></h2>
-                <p><?= htmlspecialchars($artisan['profession']) ?></p>
-                <p><i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($artisan['ville']) ?> - <?= htmlspecialchars($artisan['adresse']) ?></p>
-                <p><i class="fas fa-phone-alt"></i> <?= htmlspecialchars($artisan['telephone']) ?></p>
-            </div>
-            <div class="team-social">
-                <?php if (!empty($artisan['facebook'])): ?>
-                    <a class="social-fb" href="<?= htmlspecialchars($artisan['facebook']) ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <?php endif; ?>
-                <?php if (!empty($artisan['instagram'])): ?>
-                    <a class="social-in" href="<?= htmlspecialchars($artisan['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
-                <?php endif; ?>
-                <?php if (!empty($artisan['whatsapp'])): ?>
-                    <a class="social-wa" href="https://wa.me/<?= htmlspecialchars($artisan['whatsapp']) ?>" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <?php endif; ?>
+<div class="row">
+    @foreach ($artisans as $artisan)
+        <div class="col-lg-3 col-md-6">
+            <div class="team-item">
+                <div class="team-img">
+                    <img src="{{ asset('img/' . $artisan->photo) }}" alt="Photo Artisan" style="width:100%; height:250px; object-fit:cover;">
+                </div>
+                <div class="team-text">
+                    <h2>{{ $artisan->nom }}</h2>
+                    <p>{{ $artisan->profession }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ $artisan->ville }} - {{ $artisan->adresse }}</p>
+                    <p><i class="fas fa-phone-alt"></i> {{ $artisan->telephone }}</p>
+                </div>
+                <div class="team-social">
+                    @if ($artisan->facebook)
+                        <a class="social-fb" href="{{ $artisan->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    @endif
+                    @if ($artisan->instagram)
+                        <a class="social-in" href="{{ $artisan->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                    @endif
+                    @if ($artisan->whatsapp)
+                        <a class="social-wa" href="https://wa.me/{{ $artisan->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    @endif
+                </div>
             </div>
         </div>
-    </div>
-<?php
-}
-?>
+    @endforeach
+</div>
 
-        </div>
     </div>
 </div>
 

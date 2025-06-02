@@ -5,6 +5,7 @@ use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\SocieteArtisanController;
+use App\Http\Controllers\AuthController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -21,10 +22,8 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 
+Route::get('/auth', [AuthController::class, 'index'])->name('auth');
 
-
-
-
-
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 

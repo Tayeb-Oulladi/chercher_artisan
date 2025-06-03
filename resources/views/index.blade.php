@@ -90,7 +90,7 @@
                         <div class="carousel-caption">
                             <p class="animated fadeInRight">Qualité garantie</p>
                             <h1 class="animated fadeInLeft">ou bien un maçon !</h1>
-                            <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">obtenir un devis</a>
+                            
                         </div>
                     </div>
                 </div>

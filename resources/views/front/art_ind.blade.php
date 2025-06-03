@@ -82,6 +82,8 @@
     </form>
 </div>
 
+@auth
+<!-- Affichage des artisans si l'utilisateur est connecté -->
 <div class="row" id="artisan-results">
     @foreach ($artisans as $artisan)
         <div class="col-lg-3 col-md-6">
@@ -110,6 +112,16 @@
         </div>
     @endforeach
 </div>
+@endauth
+
+@guest
+<!-- Message pour les invités (non connectés) -->
+<div class="alert alert-warning text-center w-100">
+    <h4>⚠️ Veuillez vous connecter à notre plateforme pour afficher la liste des artisans.</h4>
+    <a href="{{ route('auth') }}" class="btn btn-primary mt-3">Se connecter</a>
+</div>
+@endguest
+
 
     </div>
 </div>

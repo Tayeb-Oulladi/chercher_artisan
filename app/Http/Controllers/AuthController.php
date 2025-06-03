@@ -49,4 +49,14 @@ class AuthController extends Controller
         return back()->with('login_error', 'Email ou mot de passe incorrect');
     }
 
+    // Ajoutez cette méthode pour gérer la déconnexion
+        public function logout(Request $request)
+        {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            
+            return redirect('/');
+        }
+
 }

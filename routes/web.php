@@ -30,5 +30,5 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.custom');
 
 Route::post('/register', [AuthController::class, 'register'])->name('register.custom');
 
-
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

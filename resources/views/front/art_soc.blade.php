@@ -80,27 +80,36 @@
     </form>
 </div>
 
-<div class="row">
-<div class="row" id="societeResults">
-@foreach($societes as $societe)
-<div class="col-lg-3 col-md-6">
-    <div class="team-item">
-        <div class="team-img">
-            <img src="{{ asset('img/' . $societe->photo) }}" alt="Photo Société" style="width:100%; height:250px; object-fit:cover;">
+
+@auth
+    <div class="row" id="societeResults">
+        @foreach($societes as $societe)
+        <div class="col-lg-3 col-md-6">
+            <div class="team-item">
+                <div class="team-img">
+                    <img src="{{ asset('img/' . $societe->photo) }}" alt="Photo Société" style="width:100%; height:250px; object-fit:cover;">
+                </div>
+                <div class="team-text">
+                    <h2>{{ $societe->nom_societe }}</h2>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ $societe->ville }} - {{ $societe->adresse }}</p>
+                    <p><i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/{{ preg_replace('/\D+/', '', $societe->telephone) }}" target="_blank">
+                            {{ $societe->telephone }}
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="team-text">
-            <h2>{{ $societe->nom_societe }}</h2>
-            <p><i class="fas fa-map-marker-alt"></i> {{ $societe->ville }} - {{ $societe->adresse }}</p>
-            <p><i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/{{ preg_replace('/\D+/', '', $societe->telephone) }}" target="_blank">
-                    {{ $societe->telephone }}
-                </a>
-            </p>
-        </div>
+        @endforeach
     </div>
-</div>
-@endforeach
-</div>
+@endauth
+
+@guest
+    <div class="alert alert-warning w-100 text-center">
+        Vous devez <a href="{{ route('auth') }}">vous connecter</a> pour voir les entreprises d'artisans.
+    </div>
+@endguest
+
 
 </div>
 

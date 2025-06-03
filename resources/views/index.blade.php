@@ -171,8 +171,8 @@
                                 <p>
                                     Nous croyons en la valeur du travail artisanal local, en la confiance et en la qualité du service rendu. Chaque artisan inscrit est soigneusement sélectionné pour vous garantir une expérience fiable, transparente et professionnelle.
                                 </p>
-                                <a class="btn" href="art_ind.blade.php">artisan indépendant</a>
-                                <a class="btn" href="art_soc.blade.php">société des artisans</a>
+                                <a class="btn" href="{{route('artisan')}}">artisan indépendant</a>
+                                <a class="btn" href="{{ route('company') }}">société des artisans</a>
                             </div>
                         </div>
                     </div>
@@ -363,75 +363,76 @@
 
             <!-- Blog Start -->
             <div class="blog">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Nos Collaborateurs</p>
-            <h2>Artisans & Sociétés d'artisans</h2>
-        </div>
-        <div class="row">
-            <?php
-            $pdo = new PDO('mysql:host=localhost;dbname=artisan_finder', 'root', '');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // Récupérer les artisans
-            $stmtArtisans = $pdo->query("SELECT * FROM artisans");
-            while ($a = $stmtArtisans->fetch(PDO::FETCH_ASSOC)) {
-            ?>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/<?= htmlspecialchars($a['photo']) ?>" alt="Artisan" style="height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="blog-title">
-                            <h3><?= htmlspecialchars($a['nom']) ?></h3>
-                            <a class="btn" href="https://wa.me/<?= htmlspecialchars($a['whatsapp']) ?>" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                        <div class="blog-meta">
-                            <p><strong>Métier:</strong> <?= htmlspecialchars($a['profession']) ?></p>
-                            <p><strong>Ville:</strong> <?= htmlspecialchars($a['ville']) ?></p>
-                        </div>
-                        <div class="blog-text">
-                            <p><strong>Adresse:</strong> <?= htmlspecialchars($a['adresse']) ?></p>
-                            <p><strong>Téléphone:</strong> <?= htmlspecialchars($a['telephone']) ?></p>
-                            <div>
-                                <?php if (!empty($a['facebook'])): ?>
-                                    <a href="<?= htmlspecialchars($a['facebook']) ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                <?php endif; ?>
-                                <?php if (!empty($a['instagram'])): ?>
-                                    <a href="<?= htmlspecialchars($a['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-
-            <?php
-            // Récupérer les sociétés d'artisans
-            $stmtSoc = $pdo->query("SELECT * FROM societe_artisan");
-            while ($s = $stmtSoc->fetch(PDO::FETCH_ASSOC)) {
-            ?>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/<?= htmlspecialchars($s['photo']) ?>" alt="Société" style="height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="blog-title">
-                            <h3><?= htmlspecialchars($s['nom_societe']) ?></h3>
-                            <a class="btn" href="#"><i class="fas fa-building"></i></a>
-                        </div>
-                        <div class="blog-meta">
-                            <p><strong>Ville:</strong> <?= htmlspecialchars($s['ville']) ?></p>
-                        </div>
-                        <div class="blog-text">
-                            <p><strong>Adresse:</strong> <?= htmlspecialchars($s['adresse']) ?></p>
-                            <p><strong>Téléphone:</strong> <?= htmlspecialchars($s['telephone']) ?></p>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
+            
+<div class="container">
+    <div class="section-header text-center">
+        <p>Nos Collaborateurs</p>
+        <h2>Artisans & Sociétés d'artisans</h2>
     </div>
+    @auth
+    <div class="row">
+        @foreach($artisans as $a)
+        <div class="col-lg-4 col-md-6 wow fadeInUp">
+            <div class="blog-item">
+                <div class="blog-img">
+                    <img src="{{ asset('img/' . $a->photo) }}" alt="Artisan" style="height: 250px; object-fit: cover;">
+                </div>
+                <div class="blog-title">
+                    <h3>{{ $a->nom }}</h3>
+                    <a class="btn" href="https://wa.me/{{ preg_replace('/\D+/', '', $a->whatsapp) }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="blog-meta">
+                    <p><strong>Métier:</strong> {{ $a->profession }}</p>
+                    <p><strong>Ville:</strong> {{ $a->ville }}</p>
+                </div>
+                <div class="blog-text">
+                    <p><strong>Adresse:</strong> {{ $a->adresse }}</p>
+                    <p><strong>Téléphone:</strong> {{ $a->telephone }}</p>
+                    <div>
+                        @if($a->facebook)
+                            <a href="{{ $a->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        @endif
+                        @if($a->instagram)
+                            <a href="{{ $a->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+        @foreach($societes as $s)
+        <div class="col-lg-4 col-md-6 wow fadeInUp">
+            <div class="blog-item">
+                <div class="blog-img">
+                    <img src="{{ asset('img/' . $s->photo) }}" alt="Société" style="height: 250px; object-fit: cover;">
+                </div>
+                <div class="blog-title">
+                    <h3>{{ $s->nom_societe }}</h3>
+                    <a class="btn" href="#"><i class="fas fa-building"></i></a>
+                </div>
+                <div class="blog-meta">
+                    <p><strong>Ville:</strong> {{ $s->ville }}</p>
+                </div>
+                <div class="blog-text">
+                    <p><strong>Adresse:</strong> {{ $s->adresse }}</p>
+                    <p><strong>Téléphone:</strong> {{ $s->telephone }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endauth
+
+@guest
+<div class="text-center my-5">
+    <h4>Veuillez vous connecter pour voir la liste des artisans et des sociétés.</h4>
+    <a href="{{ route('auth') }}" class="btn btn-primary mt-3">Se connecter</a>
+</div>
+@endguest
+
+
 </div>
 
             <!-- Blog End -->

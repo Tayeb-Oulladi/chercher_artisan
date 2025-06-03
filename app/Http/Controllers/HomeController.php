@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profession;
+use App\Models\Artisan;
+use App\Models\SocieteArtisan;
 class HomeController extends Controller
 {
     public function index(){
         $professions = Profession::all(); 
-        return view('index' ,compact('professions'));
+        $artisans = Artisan::all();
+        $societes = SocieteArtisan::all();
+        return view('index' ,compact('professions','artisans','societes'));
     }
     public function about(){
         return view('front.about');

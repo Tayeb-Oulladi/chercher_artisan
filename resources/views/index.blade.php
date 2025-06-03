@@ -63,7 +63,7 @@
                         <div class="carousel-caption">
                             <p class="animated fadeInRight">Savoir-faire reconnu</p>
                             <h1 class="animated fadeInLeft">ou bien un menuiserie !</h1>
-                            <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">obtenir un devis</a>
+                            
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                         <div class="carousel-caption">
                             <p class="animated fadeInRight">Service fiable</p>
                             <h1 class="animated fadeInLeft">ou un électricien !</h1>
-                            <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">obtenir un devis</a>
+                            
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                         <div class="carousel-caption">
                             <p class="animated fadeInRight">Respect des délais</p>
                             <h1 class="animated fadeInLeft">un peintre !</h1>
-                            <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">obtenir un devis</a>
+                           
                         </div>
                     </div>
 
@@ -246,119 +246,23 @@
                         <h2>Nous fournissons des services</h2>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide1.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>La plomberie</h3>
-                                    <a class="btn" href="img/slide1.jpg" data-lightbox="service">+</a>
-                                </div>
+            @foreach($professions as $profession)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="{{ asset('img/' . $profession->photo) }}" alt="{{ $profession->name }}">
+                            <div class="service-overlay">
+                                <p>{{ $profession->description }}</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide2.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>La menuiserie</h3>
-                                    <a class="btn" href="img/slide2.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide3.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>L'électricité</h3>
-                                    <a class="btn" href="img/slide3.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide5.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>la maçonnerie</h3>
-                                    <a class="btn" href="img/slide5.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide4.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>la peinture murale</h3>
-                                    <a class="btn" href="img/slide4.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>la Serrurier</h3>
-                                    <a class="btn" href="img/slide.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="service-item">
-                                <div class="service-img">
-                                    <img src="img/slide7.jpg" alt="Image">
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>la barbier</h3>
-                                    <a class="btn" href="img/slide7.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
+                        <div class="service-text">
+                            <h3>{{ $profession->name }}</h3>
+                            <a class="btn" href="{{ asset('img/' . $profession->photo) }}" data-lightbox="service">+</a>
                         </div>
                     </div>
+                </div>
+            @endforeach
+        </div>
                 </div>
             </div>
             <!-- Service End -->

@@ -68,38 +68,24 @@
                         <h2>Nous fournissons des services</h2>
                     </div>
                     <div class="row">
-    <?php
-    // Connexion à la base de données
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=artisan_finder', 'root', '');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // Récupération des professions
-        $stmt = $pdo->query("SELECT name, description, photo FROM professions");
-
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    ?>
+    @foreach($professions as $profession)
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="service-item">
                 <div class="service-img">
-                    <img src="img/<?= htmlspecialchars($row['photo']) ?>" alt="Image">
+                    <img src="{{ asset('img/' . $profession->photo) }}" alt="Image">
                     <div class="service-overlay">
-                        <p><?= htmlspecialchars($row['description']) ?></p>
+                        <p>{{ $profession->description }}</p>
                     </div>
                 </div>
                 <div class="service-text">
-                    <h3><?= htmlspecialchars($row['name']) ?></h3>
-                    <a class="btn" href="img/<?= htmlspecialchars($row['photo']) ?>" data-lightbox="service">+</a>
+                    <h3>{{ $profession->name }}</h3>
+                    <a class="btn" href="{{ asset('img/' . $profession->photo) }}" data-lightbox="service">+</a>
                 </div>
             </div>
         </div>
-    <?php
-        }
-    } catch (PDOException $e) {
-        echo "Erreur de connexion : " . $e->getMessage();
-    }
-    ?>
+    @endforeach
 </div>
+
 
                 </div>
             </div>

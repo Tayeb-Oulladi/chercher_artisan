@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Profession;
 class HomeController extends Controller
 {
     public function index(){
-        return view('index');
+        $professions = Profession::all(); 
+        return view('index' ,compact('professions'));
     }
     public function about(){
         return view('front.about');
     }
-    public function service(){
-        return view('front.service');
-    }
+    
     public function company(){
         return view('front.art_soc');
     }
